@@ -4,7 +4,7 @@ import { CanceledError } from "axios";
 
 interface FetchResponse<T> {
   count: number;
-  result: T[];
+  results: T[];
 }
 
 const useData = <T>(endpoint: string) => {
@@ -19,7 +19,7 @@ const useData = <T>(endpoint: string) => {
     apiClient
       .get<FetchResponse<T>>(endpoint, { signal: controller.signal })
       .then((res) => {
-        setData(res.data.result);
+        setData(res.data.results);
         setError("");
         setLoading(false);
       })
