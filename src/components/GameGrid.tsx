@@ -5,18 +5,24 @@ import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import { Genre } from "../hooks/useGenre";
 import { Platform } from "../hooks/usePlatforms";
+import { Order } from "./SortSelector";
 
 interface Props {
   selectedGenre: Genre | null;
   selectedPlatform: Platform | null;
+  selectedOrder: Order | null;
 }
 
-const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
+const GameGrid = ({
+  selectedGenre,
+  selectedPlatform,
+  selectedOrder,
+}: Props) => {
   const {
     error,
     data: games,
     isLoading,
-  } = useGames(selectedGenre, selectedPlatform);
+  } = useGames(selectedGenre, selectedPlatform, selectedOrder);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return (
     <>

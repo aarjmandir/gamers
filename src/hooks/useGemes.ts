@@ -1,3 +1,4 @@
+import { Order } from "../components/SortSelector";
 import useData from "./useData";
 import { Genre } from "./useGenre";
 
@@ -17,12 +18,19 @@ export interface Game {
 
 const useGames = (
   selectedGenre: Genre | null,
-  selectedPlatform: Platform | null
+  selectedPlatform: Platform | null,
+  selectedOrder: Order | null
 ) =>
   useData<Game>(
     "/games",
-    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-    [selectedGenre?.id, selectedPlatform?.id]
+    {
+      params: {
+        genres: selectedGenre?.id,
+        platforms: selectedPlatform?.id,
+        ordering: selectedOrder?.value,
+      },
+    },
+    [selectedGenre?.id, selectedPlatform?.id, selectedOrder?.value]
   );
 
 export default useGames;
