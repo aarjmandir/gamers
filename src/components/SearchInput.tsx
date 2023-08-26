@@ -6,13 +6,13 @@ interface Props {
   onSearch: (searchText: string) => void;
 }
 
-const SearchInput = () => {
+const SearchInput = ({ onSearch }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if (ref.current) console.log(ref.current.value);
+        if (ref.current) onSearch(ref.current.value);
       }}
     >
       <InputGroup>
