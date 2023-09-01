@@ -6,17 +6,17 @@ import {
   List,
   ListItem,
 } from "@chakra-ui/react";
-import useGenere, { Genre } from "../hooks/useGenre";
 import getCroppedImageUrl from "../services/image-url";
 import GenreItemSkeleton from "./GenreItemSkeleton";
+import useGenres, { Genre } from "../hooks/useGenres";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data: genres, isLoading, error } = useGenere();
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
+  const { data, isLoading, error } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   if (error) return null;
@@ -30,12 +30,12 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
       <List>
         {isLoading &&
           skeletons.map((skeleton) => <GenreItemSkeleton key={skeleton} />)}
-        {genres.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem
             key={genre.id}
             padding={1}
             borderRadius={5}
-            backgroundColor={selectedGenre?.id === genre.id ? "gray.700" : ""}
+            backgroundColor={selectedGenreId === genre.id ? "gray.700" : ""}
           >
             <HStack>
               <Image
@@ -50,7 +50,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                 fontSize="lg"
                 whiteSpace="normal"
                 textAlign="left"
-                fontWeight={selectedGenre?.id === genre.id ? "bold" : ""}
+                fontWeight={selectedGenreId === genre.id ? "bold" : ""}
               >
                 {genre.name}
               </Button>
