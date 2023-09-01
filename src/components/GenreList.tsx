@@ -9,7 +9,7 @@ import {
 import getCroppedImageUrl from "../services/image-url";
 import GenreItemSkeleton from "./GenreItemSkeleton";
 import useGenres from "../hooks/useGenres";
-import useGameQueryStore from "../stores/gameQueryStore";
+import { useGameQueryStore } from "../stores";
 
 const GenreList = () => {
   const { gameQuery, setGenreId } = useGameQueryStore((s) => ({

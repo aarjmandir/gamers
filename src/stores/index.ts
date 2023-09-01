@@ -1,1 +1,1 @@
-export { default as useGameStore } from "./gameQueryStore";
+export { default as useGameQueryStore } from "./gameQueryStore";
