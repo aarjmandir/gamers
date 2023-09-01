@@ -8,14 +8,14 @@ import {
 } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url";
 import GenreItemSkeleton from "./GenreItemSkeleton";
-import useGenres, { Genre } from "../hooks/useGenres";
+import useGenres from "../hooks/useGenres";
+import useGameQueryStore from "../stores/gameQueryStore";
 
-interface Props {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenreId?: number;
-}
-
-const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
+const GenreList = () => {
+  const { gameQuery, setGenreId } = useGameQueryStore((s) => ({
+    gameQuery: s.gameQuery,
+    setGenreId: s.setGenreId,
+  }));
   const { data, isLoading, error } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -35,7 +35,7 @@ const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
             key={genre.id}
             padding={1}
             borderRadius={5}
-            backgroundColor={selectedGenreId === genre.id ? "gray.700" : ""}
+            backgroundColor={gameQuery.genreId === genre.id ? "gray.700" : ""}
           >
             <HStack>
               <Image
@@ -46,11 +46,11 @@ const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
               />
               <Button
                 variant="link"
-                onClick={() => onSelectGenre(genre)}
+                onClick={() => setGenreId(genre.id)}
                 fontSize="lg"
                 whiteSpace="normal"
                 textAlign="left"
-                fontWeight={selectedGenreId === genre.id ? "bold" : ""}
+                fontWeight={gameQuery.genreId === genre.id ? "bold" : ""}
               >
                 {genre.name}
               </Button>
