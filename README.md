@@ -1,4 +1,4 @@
-# React Typescript Axios ReactQuery Zustand Project
+# React Typescript Axios ReactQuery Zustand ChakraUi Project
 
 Welcome to the React Typescript Axios ReactQuery Project! In this project, we have integrated React, Axios, and React Query for seamless API integration and data management.
 
@@ -17,15 +17,19 @@ Welcome to the React Typescript Axios ReactQuery Project! In this project, we ha
 ## Installation
 
 1. Clone the repository
-git clone https://github.com/username/project-name.git
+
+git clone https://github.com/aarjmandir/gamers.git
 
 2. Navigate to the project directory
-cd project-name
+
+cd gamers
 
 3. Install the required dependencies
+
 npm install or yarn install
 
 4. Start the development server
+
 npm start or yarn start
 
 Now, the application should be running on your local machine. You can access it by navigating to http://localhost:3000 in your browser.
