@@ -1,27 +1,35 @@
-# React + TypeScript + Vite
+# React Typescript Axios ReactQuery Zustand Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the React Typescript Axios ReactQuery Project! In this project, we have integrated React, Axios, and React Query for seamless API integration and data management.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Integrated with Axios for seamless API management
+- Integrated with React Query for server state management and data caching
+- TypeScript support for robust type checking
+- Clean and responsive design for enhanced user experience
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js
+- npm or yarn
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+1. Clone the repository
+git clone https://github.com/username/project-name.git
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navigate to the project directory
+cd project-name
+
+3. Install the required dependencies
+npm install or yarn install
+
+4. Start the development server
+npm start or yarn start
+
+Now, the application should be running on your local machine. You can access it by navigating to http://localhost:3000 in your browser.
+
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
